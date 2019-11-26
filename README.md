@@ -1,6 +1,7 @@
 # ngrok-qr
 A wrapper for [ngrok](https://ngrok.com/) that automatically generates QR codes for tunnel URLs.
 
+![Demo Picture](./demo.png?raw=true "Demo of ngrok-qr")
 
 ### Usage
 Use ngrok-qr like you would normally use ngrok, all the command line arguments will be passed to ngrok:
