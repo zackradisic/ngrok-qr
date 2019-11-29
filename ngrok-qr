@@ -1,26 +1,16 @@
 #!/usr/bin/env bash 
 
 
-check_os() {
-    unsupported=false
-    if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-        # Do something under 32 bits Windows NT platform
-        unsupported=true
-    elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-        unsupported=true
-    fi
-
-    if [ "$unsupported" == true]; then
-        echo "Error: You are running an unsupported OS";
-        exit 1;
-    fi
-}
-
 new_terminal() {
     if [ "$(uname)" == "Darwin" ]; then
-        ngrok-qr-generator-osascript      
+        ngrok-qr-generator-osascript "$@"    
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         gnome-terminal -e "ngrok-qr-generator \"$a\" ";
+    else
+        echo "Unsupported OS"
+        exit
     fi
 }
-ngrok-qr-generator-osascript "$@" && ngrok "$@"
+
+
+new_terminal "$@" && ngrok "$@"

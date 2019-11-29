@@ -50,7 +50,7 @@ namespace ngrokqr {
     }
 
 
-    string get_tunnel_url(string url, bool ssl) {
+    string get_tunnel_url(string url) {
         CURL *curl;
         CURLcode res;
         string readBuffer;

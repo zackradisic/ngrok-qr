@@ -9,4 +9,17 @@ default:
 	for f in src/*.cpp; do $(CXX) -flto $(CXXFLAGS) src/$$(basename "$$f") -o bin/objects/$$(basename "$$f" ".cpp")".o" -c; done
 	$(CXX) $(CXXFLAGS) bin/objects/*.o bin/static/libqrcodegen.a -o ngrok-qr-generator -lcurl
 
+
+OSX_MV = exit
+
+ifeq ($(UNAME_S),Darwin)
+	OSX_MV = chmod u+x ./ngrok-qr-generator-osascript; cp ./ngrok-qr-generator-osascript /usr/local/bin/ngrok-qr-generator-osascript
+endif
+
+install:
+	chmod u+x ./ngrok-qr
+	chmod u+x ./ngrok-qr-generator
+	cp ./ngrok-qr /usr/local/bin/ngrok-qr
+	cp ./ngrok-qr-generator /usr/local/bin/ngrok-qr-generator
+	$(OSX_MV)
 	
