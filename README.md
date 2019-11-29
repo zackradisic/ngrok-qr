@@ -3,6 +3,9 @@ A wrapper for [ngrok](https://ngrok.com/) that automatically generates QR codes 
 
 ![Demo Picture](./demo.png?raw=true "Demo of ngrok-qr")
 
+### Why use this?
+If you're developing and testing web applications with ngrok for mobile devices, it is quite cumbersome to enter the tunnel URLs on your phone every time you restart ngrok. QR codes relieve this redundancy and make the development workflow much faster.
+
 ### Usage
 Use the command `ngrok-qr` like you would normally use with ngrok, all the command line arguments will be passed to ngrok:
 
